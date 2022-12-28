@@ -1,38 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Prosto+One&family=Revalia&display=swap');
+:root{
+  --Font1:'Orbitron',sans-serif;
+  --Font2:'Revalia' , sans-serif;
+  --Size: 18px;
+  --regula: 400;
+  --bold:600;
+  
+  /* COLORS */
+  --Black:rgb(8,8,8);
+  --Gray:rgb(59,68,75);
+  --Cream:rgb(240,236,225);
+  --Red:rgb(221,78,30);
+  --Orange:rgb(229,112,61);
+  --White:rgb(256,256,256);
+  
+}
+body{
+  font-size: var(--Size);
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-image: url('../public/assets/bg-4.png');
+  background-position: top;
+  background-size: cover;
+  backdrop-filter: blur(40px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content:flex-start;
+  width: 100%;
+  height: auto;
+  font-family: var(--Font1);
 }
 
-.App-link {
-  color: #61dafb;
+a{
+  text-decoration: none;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* @media screen and (min-width: 1441px) {
+  .App{
+      height: 100vh;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
+} */

@@ -1,0 +1,125 @@
+.container{
+    width: clamp(22rem, 95vw, 68rem);
+    height: 100%;
+    padding: 4.2rem 0;
+    color: var(--White);
+    display: flex;
+    
+}
+.hero{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    height: 40rem;
+}
+
+.leftSection{
+    width: clamp(22rem, 95vw, 40rem);
+    margin-right: 1rem;
+}
+.leftSection img{
+    width: clamp(10rem, 80vw, 40rem);
+    height: clamp(10rem, 80vw, 30rem);
+}
+
+.rightSection{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.rectangle{
+    width: 10rem;
+    height: clamp(24rem, 80vw, 32rem);
+    margin-left: -8rem;
+    background: transparent;
+    outline: 1rem solid var(--Red);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.content{
+    width: clamp(10rem, 80vw, 30rem);
+    height: 32rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.header{
+    width: auto;
+    font-size: clamp(3rem, 6vw, 6rem); 
+    cursor: pointer;
+}
+.header span:hover{
+    color: var(--Red);
+}
+.text{
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    text-align: center;
+}
+p{
+    margin: 1rem;
+}
+
+
+
+
+
+
+/*Floating animation*/
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    50% {
+        transform: translate(0, 15px);
+    }
+
+    100% {
+        transform: translate(0, -0px);
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .hero{
+        height: auto;
+        flex-direction: column;
+    }
+    .rectangle{
+        position: absolute;
+        margin-left: 1rem;
+        opacity: 0.5;
+    }
+    .content{
+        padding: 2rem;
+        margin-left: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .leftSection img{
+        margin-bottom: -8rem;
+        margin-top: -2rem;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .hero{
+        height: 75vh;
+    }
+}
