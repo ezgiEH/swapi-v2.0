@@ -1,29 +1,43 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchStarships, FetchStarship, FetchFilms } from "./Sevices";
+import { fetchStarships, fetchStarship } from "./Sevices";
 
 
 export const StarwarsSlice = createSlice ({
     name: 'starwars',
     initialState:{
         starships: [],
+        starship:[],
         films: [],
-        status: 'idle',
+        StarshipsStatus: 'idle',
+        StarshipStatus: 'idle',
         error: null,
     },
     reducers: {},
 
     extraReducers:(builder) => {
-    builder
+    
     //fetch starships
-    .addCase(fetchStarships.pending, (state) =>{
-        state.status = "loading"
+    builder.addCase(fetchStarships.pending, (state) =>{
+        state.StarshipsStatus = "loading"
     })
-    .addCase(fetchStarships.fulfilled, (state, action) => {
-        state.status = "succeded"
+    builder.addCase(fetchStarships.fulfilled, (state, action) => {
+        state.StarshipsStatus = "succeded"
         state.starships = [...state.starships, ...action.payload];
     })
-    .addCase(fetchStarships.rejected, (state) => {
-        state.status = "failed"
+    builder.addCase(fetchStarships.rejected, (state) => {
+        state.StarshipsStatus = "failed"
+    })
+    // //fetch only one
+    
+    builder.addCase(fetchStarship.pending, (state) => {
+        state.StarshipStatus = "loading"
+    })
+    builder.addCase(fetchStarship.fulfilled, (state, action) => {
+        state.StarshipStatus = "succeded"
+        state.starship = action.payload
+    })
+    builder.addCase(fetchStarship.rejected, (state) => {
+        state.StarshipStatus = "failed"
     })
     }
 })

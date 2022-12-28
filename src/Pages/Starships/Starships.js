@@ -9,6 +9,7 @@ function Starships() {
     const [page, setPage] = useState(1)
     const [button, setButton] = useState(false)
     const starships = useSelector((state) => state.starwars.starships)
+    const loading = useSelector((state) => state.starwars.StarshipStatus)
 
     function handleClick() {
         page < 4 ? setPage(page + 1) : setButton(true)
@@ -18,27 +19,30 @@ function Starships() {
         dispatch(fetchStarships({ page }))
     }, [dispatch, page])
 
-    console.log(starships)
-    return (
-        <div className={styles.container}>
-            <div className={styles.cardList}>
-                {starships && starships.map((starship , id) =>
-                   <Starship key={id} starship={starship} />
-                )}
+    if (loading === 'loading') {
+        return (
+            <div className={styles.spinnerContainer}>
+                <div className={styles.spinner}></div>
             </div>
-            <div className={styles.loadMore}>
-                <button onClick={() => handleClick()} disabled={button}>LOAD MORE</button>
+        
+        )
+    }
+    else {
+        return (
+            <div className={styles.container}>
+                <div className={styles.cardList}>
+                    {starships && starships.map((starship, id) =>
+                        <Starship key={id} starship={starship} />
+                    )}
+                </div>
+                <div className={styles.loadMore}>
+                    <button onClick={() => handleClick()} disabled={button}>LOAD MORE</button>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
 }
 
 export default Starships
 
-
- // <div>Starship
-        //     {starships && starships.map((item) =>
-        //         <p>{item.name}- {item.url}</p>
-        //     )}
-        //     <button onClick={() => handleClick()} disabled={button}>LOAD MORE</button>
-        // </div>

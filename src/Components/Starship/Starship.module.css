@@ -10,9 +10,10 @@
     justify-content: flex-start;
 }
 .card:hover{
-    background: var(--Cream);
-    color: var(--Black);
+    /* background: var(--Cream);
+    color: var(--Black); */
 }
+
 .top {
     width: clamp(10rem, 70vw, 20rem);
     height: 15rem;
@@ -53,13 +54,21 @@
 .header{
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: var(--White);
+    letter-spacing: .1rem;
     margin-top: 2rem;
 }
+.header:hover span{
+    display: none;
+}
+.header:hover:before {
+    content: "More Detail";
+}
+
 
 /*Floating animation*/
 .floating {
     animation-name: floating;
-    animation-duration: 8s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }

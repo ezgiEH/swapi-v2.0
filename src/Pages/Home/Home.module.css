@@ -24,7 +24,6 @@
 }
 
 .rightSection{
-    
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,7 +36,6 @@
     margin-left: -8rem;
     background: transparent;
     outline: 1rem solid var(--Red);
-    opacity: 0.8;
     z-index: -1;
 }
 

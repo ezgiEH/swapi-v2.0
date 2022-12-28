@@ -6,7 +6,7 @@ const api_url = "https://swapi.dev/api/";
 
 //fetch starships per page
 export const fetchStarships = createAsyncThunk(
-    'starwars/fetchStarships',
+    `Starships`,
     async ({page}) => {
         try {
             const response = await axios(`${api_url}/starships/?page=${page}`)
@@ -19,7 +19,7 @@ export const fetchStarships = createAsyncThunk(
 
 //fetch starship 
 export const fetchStarship = createAsyncThunk(
-    'starwars/fetchStarship',
+    `Starship`,
     async ({id}) => {
         try {
             const response = await axios(`${api_url}/starships/${id}`)

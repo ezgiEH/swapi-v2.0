@@ -18,7 +18,7 @@ function Starship({ starship }) {
           <img className={styles.floating} src={`/assets/ships/${id}.png`}></img>
         </div>
         <div className={styles.badget}>{starship.model}</div>
-        <div className={styles.header}>{starship.name}</div>
+        <div className={styles.header}><span>{starship.name}</span></div>
       </div>
     </Link>
   )

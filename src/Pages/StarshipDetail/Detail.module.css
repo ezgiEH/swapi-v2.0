@@ -1,41 +1,3 @@
-.container{
-    width: clamp(26rem, 100vw, 80rem);
-    height: auto;
-   
-}
-.cardList{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.loadMore{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem;
-}
-
-.loadMore button{
-    background: var(--Red);
-    border: .1rem solid var(--Orange);
-    padding: 1rem 1.5rem;
-    border-radius: 2rem;
-    color: var(--White);
-    font-family: var(--Font1);
-    letter-spacing: .2rem;
-    font-weight: 700;
-    box-shadow: rgba(221,78,30, 0.5) 0px 4px 40px, var(--Black) 0px 10px 10px;
-}
-
-.loadMore button:hover{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
 /*Spinner*/
 .spinnerContainer{
     height: 100vh;
@@ -94,3 +56,53 @@
       opacity: .1;
     }
   }
+
+/*Spinenr*/
+/*Rectangle*/
+.rectangle{
+    width: 10rem;
+    height: clamp(24rem, 80vw, 32rem);
+    margin-left: -10rem;
+    background: transparent;
+    outline: 1rem solid var(--Red);
+    z-index: -1;
+}
+/*Rectangle*/
+
+
+.container{
+    width: clamp(26rem, 100vw, 80rem);
+    height: 81.5vh;  
+    color: var(--Red);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.leftSection{
+    width: clamp(22rem, 100vw, 30rem);
+    height: clamp(20rem, 80vw, 40rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+}
+
+.leftSection img{
+    width: clamp(20rem, 80vw, 30rem);
+    height: clamp(20rem, 80vw, 30rem);
+    object-fit: contain;
+    /* backdrop-filter: blur(10px); */
+    filter: drop-shadow(0 0 0.75rem var(--Gray));
+}
+.shipName{
+    font-size: 3rem;
+}
+.rightSection{
+    width: clamp(22rem, 100vw, 30rem);
+}
