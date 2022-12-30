@@ -3,9 +3,9 @@
     height: 100%;
     padding: 4.2rem 0;
     color: var(--White);
-    display: flex;
-    
+    display: flex; 
 }
+
 .hero{
     display: flex;
     flex-direction: row;
@@ -45,7 +45,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .header{
@@ -53,15 +53,23 @@
     font-size: clamp(3rem, 6vw, 6rem); 
     cursor: pointer;
 }
+.header p{
+    text-align: end;
+}
 .header span:hover{
     color: var(--Red);
 }
 .text{
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-    text-align: center;
+    text-align: end;
 }
 p{
-    margin: 1rem;
+    
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 

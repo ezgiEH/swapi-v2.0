@@ -1,108 +1,227 @@
 /*Spinner*/
-.spinnerContainer{
-    height: 100vh;
+.spinnerContainer {
+  height: 100vh;
 }
+
 .spinner {
-    position: relative;
-    margin: auto;
-    box-sizing: border-box;
-    background-clip: padding-box;
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    border: 4px solid var(--Gray);
-    -webkit-mask: linear-gradient(rgba(0, 0, 0, 0.1), #000000 90%);
-    transform-origin: 50% 60%;
-    transform: perspective(200px) rotateX(66deg);
-    animation: spinner-wiggle 1.2s infinite;
+  position: relative;
+  margin: auto;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 4px solid var(--Gray);
+  -webkit-mask: linear-gradient(rgba(0, 0, 0, 0.1), #000000 90%);
+  transform-origin: 50% 60%;
+  transform: perspective(200px) rotateX(66deg);
+  animation: spinner-wiggle 1.2s infinite;
+}
+
+.spinner:before,
+.spinner:after {
+  content: "";
+  position: absolute;
+  margin: -4px;
+  box-sizing: inherit;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  opacity: .05;
+  border: inherit;
+  border-color: transparent;
+  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
+}
+
+.spinner:before {
+  border-top-color: var(--Gray);
+}
+
+.spinner:after {
+  border-top-color: var(--Red);
+  animation-delay: 0.3s;
+}
+
+@keyframes spinner-spin {
+  100% {
+    transform: rotate(360deg);
   }
-  .spinner:before,
-  .spinner:after {
-    content: "";
-    position: absolute;
-    margin: -4px;
-    box-sizing: inherit;
-    width: inherit;
-    height: inherit;
-    border-radius: inherit;
-    opacity: .05;
-    border: inherit;
-    border-color: transparent;
-    animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
+}
+
+@keyframes spinner-fade {
+  20% {
+    opacity: .1;
   }
-  
-  .spinner:before {
-    border-top-color: var(--Gray);
+
+  40% {
+    opacity: 1;
   }
-  
-  .spinner:after {
-    border-top-color: var(--Red);
-    animation-delay: 0.3s;
+
+  60% {
+    opacity: .1;
   }
-  
-  @keyframes spinner-spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes spinner-fade {
-    20% {
-      opacity: .1;
-    }
-    40% {
-      opacity: 1;
-    }
-    60% {
-      opacity: .1;
-    }
-  }
+}
 
 /*Spinenr*/
+
+/*Floating animation*/
+.floating {
+  animation-name: floating;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.floating:hover{
+  animation-play-state: paused;
+}
+@keyframes floating {
+  0% {
+      transform: translate(0, 0px);
+  }
+
+  50% {
+      transform: translate(0, 15px);
+  }
+
+  100% {
+      transform: translate(0, -0px);
+  }
+}
+
 /*Rectangle*/
-.rectangle{
-    width: 10rem;
-    height: clamp(24rem, 80vw, 32rem);
-    margin-left: -10rem;
-    background: transparent;
-    outline: 1rem solid var(--Red);
-    z-index: -1;
+.rectangle {
+  position: absolute;
+  width: clamp(6rem, 60vw, 24rem);
+  height: clamp(6rem, 60vw, 24rem);
+  margin-left: 8rem;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  outline: 1rem solid var(--Red);
+  transform: rotate(45deg);
+  opacity: 0.5;
+  z-index: -1;
 }
 /*Rectangle*/
 
 
-.container{
-    width: clamp(26rem, 100vw, 80rem);
-    height: 81.5vh;  
-    color: var(--Red);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.box{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-.leftSection{
-    width: clamp(22rem, 100vw, 30rem);
-    height: clamp(20rem, 80vw, 40rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:flex-start;
+.container {
+  width: clamp(25rem, 100vw, 78rem);
+  height: 81.5vh;
+  color: var(--Red);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.leftSection img{
-    width: clamp(20rem, 80vw, 30rem);
-    height: clamp(20rem, 80vw, 30rem);
-    object-fit: contain;
-    /* backdrop-filter: blur(10px); */
-    filter: drop-shadow(0 0 0.75rem var(--Gray));
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
-.shipName{
-    font-size: 3rem;
+
+.leftSection {
+  width: clamp(20rem, 100vw, 34rem);
+  height: clamp(20rem, 80vw, 34rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
 }
-.rightSection{
-    width: clamp(22rem, 100vw, 30rem);
+
+.leftSection img {
+  width: clamp(22rem, 80vw, 40rem);
+  margin-top: 1rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 0.75rem var(--Gray));
+}
+
+.shipName p {
+  text-align: start;
+  font-size: clamp(1.5rem, 3vw, 4rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--White);
+}
+
+.rightSection {
+  width: clamp(23rem, 100vw, 30rem);
+}
+
+.card{
+  width: clamp(23rem, 80vw, 32rem);
+  height: auto;
+  color: var(--White);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  backdrop-filter: blur(2rem);
+}
+
+.badget{
+  width: clamp(8rem, 80vw, 28rem);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 400;
+  letter-spacing: .2rem;
+  color: var(--White);
+  background: var(--Red);
+  padding: .5rem 1rem;
+  border-radius: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.info{
+  width: clamp(8rem, 80vw, 32rem);
+}
+.info b{
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  letter-spacing: .2rem;
+}
+.info p{
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin: .6rem;
+}
+
+@media screen and (max-width: 500px) {
+  .container{
+    height: auto;
+    align-items: center;
+  }
+  .box{
+    flex-direction: column;
+    align-items: center;
+  }
+  .rectangle{
+    margin-left: 2rem;
+    margin-top: 5rem;
+    
+  }
+  .leftSection{
+    margin-left: 2rem;
+  }
+  .info{
+    text-align: center;
+  
+  }
+
+  ul{
+    padding-inline-start: 0px;
+  }
+  ul li{
+    list-style-type: none;
+    
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .container{
+      height: 85.5vh;
+  }
 }

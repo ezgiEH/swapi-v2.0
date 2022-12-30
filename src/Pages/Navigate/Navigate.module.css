@@ -1,5 +1,5 @@
 .navbar {
-    width: clamp(22rem, 95vw, 78rem);
+    width: clamp(22rem, 95vw, 76rem);
     padding: 2rem;
     color: #fff;
     display: flex;
@@ -78,7 +78,9 @@ header {
 .hamburger {
     display: none;
 }
-
+.mobileMenu{
+    display: none;
+}
 /*MENU ITEM*/
 
 
@@ -88,16 +90,37 @@ header {
     .navbar {
         backdrop-filter: blur(10px);
     }
-
+    .line{
+        display: none;
+    }
     .menu {
         display: none;
     }
-
+    
     .hamburger {
         display: block;
-        margin: 0 1rem;
+        padding:.2rem .4rem;
+        border: none;
+        color: var(--Red);
+        background: var(--Black);
+        font-size: 1.5rem;
     }
-    .line{
+    .mobileMenu{
         display: none;
+       
+    }
+    
+    .open{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        left: 1.5rem;
+        height: auto;
+        font-size: .8rem;
+        backdrop-filter: blur(2rem);
+    }
+    .open .menuItem{
+        margin-right: .2rem;
     }
 }

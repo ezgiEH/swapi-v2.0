@@ -9,7 +9,7 @@ function Starships() {
     const [page, setPage] = useState(1)
     const [button, setButton] = useState(false)
     const starships = useSelector((state) => state.starwars.starships)
-    const loading = useSelector((state) => state.starwars.StarshipStatus)
+    const loading = useSelector((state) => state.starwars.StarshipsStatus)
 
     function handleClick() {
         page < 4 ? setPage(page + 1) : setButton(true)

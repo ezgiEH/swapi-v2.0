@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import Home from '../Home/Home'
 import Starships from '../Starships/Starships'
@@ -10,6 +10,9 @@ import { FaBars } from "react-icons/fa";
 
 
 function Navigate() {
+
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
         <div>
             <Router>
@@ -21,7 +24,14 @@ function Navigate() {
                         <div className={styles.menuItem}><Link to="/starships">01 STARSHIPS</Link></div>
                         <div className={styles.menuItem}><Link to="/contact">02 CONTACT</Link></div>
                     </div>
-                    <div className={styles.hamburger}><FaBars/></div>
+                    <div><button className={styles.hamburger} onClick={() => {
+                        setIsOpen(!isOpen);}}><FaBars /></button>
+                        <div className={isOpen ? styles.open : styles.mobileMenu}>
+                            <div className={styles.menuItem} ><Link to="/">00 HOME</Link></div>
+                            <div className={styles.menuItem}><Link to="/starships">01 STARSHIPS</Link></div>
+                            <div className={styles.menuItem}><Link to="/contact">02 CONTACT</Link></div>
+                        </div>
+                    </div>
                 </div>
                 <Routes>
                     <Route path="/" element={<Home />} />

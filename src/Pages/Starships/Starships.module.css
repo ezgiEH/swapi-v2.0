@@ -1,96 +1,106 @@
-.container{
-    width: clamp(26rem, 100vw, 80rem);
-    height: auto;
-   
-}
-.cardList{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
+.container {
+  width: clamp(26rem, 100vw, 80rem);
+  height: auto;
+
 }
 
-.loadMore{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem;
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
-.loadMore button{
-    background: var(--Red);
-    border: .1rem solid var(--Orange);
-    padding: 1rem 1.5rem;
-    border-radius: 2rem;
-    color: var(--White);
-    font-family: var(--Font1);
-    letter-spacing: .2rem;
-    font-weight: 700;
-    box-shadow: rgba(221,78,30, 0.5) 0px 4px 40px, var(--Black) 0px 10px 10px;
+.loadMore {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
 }
 
-.loadMore button:hover{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+.loadMore button {
+  background: var(--Red);
+  border: .1rem solid var(--Orange);
+  padding: 1rem 1.5rem;
+  border-radius: 2rem;
+  color: var(--White);
+  font-family: var(--Font1);
+  letter-spacing: .2rem;
+  font-weight: 700;
+  box-shadow: rgba(221, 78, 30, 0.5) 0px 4px 40px, var(--Black) 0px 10px 10px;
+}
+
+.loadMore button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 /*Spinner*/
-.spinnerContainer{
-    height: 100vh;
+.spinnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 81vh;
 }
+
 .spinner {
-    position: relative;
-    margin: auto;
-    box-sizing: border-box;
-    background-clip: padding-box;
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    border: 4px solid var(--Gray);
-    -webkit-mask: linear-gradient(rgba(0, 0, 0, 0.1), #000000 90%);
-    transform-origin: 50% 60%;
-    transform: perspective(200px) rotateX(66deg);
-    animation: spinner-wiggle 1.2s infinite;
+  position: relative;
+  margin: auto;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 4px solid var(--Gray);
+  -webkit-mask: linear-gradient(rgba(0, 0, 0, 0.1), #000000 90%);
+  transform-origin: 50% 60%;
+  transform: perspective(200px) rotateX(66deg);
+  animation: spinner-wiggle 1.2s infinite;
+}
+
+.spinner:before,
+.spinner:after {
+  content: "";
+  position: absolute;
+  margin: -4px;
+  box-sizing: inherit;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  opacity: .05;
+  border: inherit;
+  border-color: transparent;
+  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
+}
+
+.spinner:before {
+  border-top-color: var(--Gray);
+}
+
+.spinner:after {
+  border-top-color: var(--Red);
+  animation-delay: 0.3s;
+}
+
+@keyframes spinner-spin {
+  100% {
+    transform: rotate(360deg);
   }
-  .spinner:before,
-  .spinner:after {
-    content: "";
-    position: absolute;
-    margin: -4px;
-    box-sizing: inherit;
-    width: inherit;
-    height: inherit;
-    border-radius: inherit;
-    opacity: .05;
-    border: inherit;
-    border-color: transparent;
-    animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
+}
+
+@keyframes spinner-fade {
+  20% {
+    opacity: .1;
   }
-  
-  .spinner:before {
-    border-top-color: var(--Gray);
+
+  40% {
+    opacity: 1;
   }
-  
-  .spinner:after {
-    border-top-color: var(--Red);
-    animation-delay: 0.3s;
+
+  60% {
+    opacity: .1;
   }
-  
-  @keyframes spinner-spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes spinner-fade {
-    20% {
-      opacity: .1;
-    }
-    40% {
-      opacity: 1;
-    }
-    60% {
-      opacity: .1;
-    }
-  }
+}
