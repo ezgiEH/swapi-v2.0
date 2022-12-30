@@ -45,18 +45,22 @@ figure{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    
+    justify-content: space-around; 
 }
 
+/* figure:hover{
+    color: var(--Red);
+} */
 figure img{
     width: clamp(5rem, 30vw, 10rem);
     height: clamp(5rem, 30vw, 10rem);
-    color: var(--White);
     filter: invert(100%);
 }
-figcaption{
-
+figure img:hover{
+    -webkit-transform: scale(1.2);
+	transform: scale(1.2);
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
 .rectangle{
@@ -79,6 +83,13 @@ figcaption{
         margin-left: 2.5rem;
     }
     .box{
+        margin: 2rem 0;
+    }
+  }
+
+  @media screen and (min-width: 1441px) {
+    .container{
+        height: 81vh;
         margin: 2rem 0;
     }
   }

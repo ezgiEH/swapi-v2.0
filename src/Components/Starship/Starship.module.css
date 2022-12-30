@@ -9,10 +9,7 @@
     align-items: center;
     justify-content: flex-start;
 }
-.card:hover{
-    /* background: var(--Cream);
-    color: var(--Black); */
-}
+
 
 .top {
     width: clamp(10rem, 70vw, 20rem);
