@@ -1,3 +1,39 @@
+# [SWAPI APP v2.0](https://swapi-eh.netlify.app/) 
+
+<table>
+  <tr>
+    <th>
+      <img src="https://github.com/ezgiEH/swapi-v2.0/blob/master/ss/swapii.png">
+    </th>
+    <th>
+      <img src="https://github.com/ezgiEH/swapi-v2.0/blob/master/ss/starships.png">
+    </th>
+    <th>
+      <img src="https://github.com/ezgiEH/swapi-v2.0/blob/master/ss/detail.png">
+    </th>
+  </tr>
+</table>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
